@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vitis HLS Report for 'myproject_Pipeline_PadMain'
+================================================================
+* Date:           Tue Mar  3 13:36:59 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        myproject_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  3.358 ns|     1.25 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       82|       82|  0.820 us|  0.820 us|   82|   82|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------+---------+---------+----------+-----------+-----------+------+----------+
+        |           |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- PadMain  |       80|       80|        11|         10|          1|     8|       yes|
+        +-----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+--------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |   LUT  | URAM|
++-----------------+---------+-----+--------+--------+-----+
+|DSP              |        -|    -|       -|       -|    -|
+|Expression       |        -|    -|       0|      38|    -|
+|FIFO             |        -|    -|       -|       -|    -|
+|Instance         |        -|    -|       -|       -|    -|
+|Memory           |        -|    -|       -|       -|    -|
+|Multiplexer      |        -|    -|       -|     130|    -|
+|Register         |        -|    -|      34|       -|    -|
++-----------------+---------+-----+--------+--------+-----+
+|Total            |        0|    0|      34|     168|    0|
++-----------------+---------+-----+--------+--------+-----+
+|Available        |      730|  740|  269200|  134600|    0|
++-----------------+---------+-----+--------+--------+-----+
+|Utilization (%)  |        0|    0|      ~0|      ~0|    0|
++-----------------+---------+-----+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |i_8_fu_81_p2                       |         +|   0|  0|  13|           4|           1|
+    |ap_block_pp0_stage0_01001          |       and|   0|  0|   2|           1|           1|
+    |ap_block_pp0_stage1_01001          |       and|   0|  0|   2|           1|           1|
+    |ap_block_pp0_stage9_01001          |       and|   0|  0|   2|           1|           1|
+    |ap_block_state10_pp0_stage9_iter0  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln59_fu_75_p2                 |      icmp|   0|  0|  13|           4|           5|
+    |ap_block_state2_pp0_stage1_iter0   |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0                      |       xor|   0|  0|   2|           1|           2|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |Total                              |          |   0|  0|  38|          14|          13|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+----+-----------+-----+-----------+
+    |             Name            | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                    |  45|         11|    1|         11|
+    |ap_done_int                  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0      |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0_reg  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1      |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_7         |   9|          2|    4|          8|
+    |conv1_input_TDATA_blk_n      |   9|          2|    1|          2|
+    |i_fu_44                      |   9|          2|    4|          8|
+    |layer13_out_blk_n            |   9|          2|    1|          2|
+    |layer13_out_din              |  13|          3|   16|         48|
+    +-----------------------------+----+-----------+-----+-----------+
+    |Total                        | 130|         30|   31|         87|
+    +-----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                    |  10|   0|   10|          0|
+    |ap_done_reg                  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0_reg  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |   1|   0|    1|          0|
+    |i_fu_44                      |   4|   0|    4|          0|
+    |icmp_ln59_reg_99             |   1|   0|    1|          0|
+    |reg_62                       |  16|   0|   16|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        |  34|   0|   34|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+----------------------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++--------------------+-----+-----+------------+----------------------------+--------------+
+|ap_clk              |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|ap_rst              |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|ap_start            |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|ap_done             |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|ap_idle             |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|ap_ready            |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_PadMain|  return value|
+|layer13_out_din     |  out|   16|     ap_fifo|                 layer13_out|       pointer|
+|layer13_out_full_n  |   in|    1|     ap_fifo|                 layer13_out|       pointer|
+|layer13_out_write   |  out|    1|     ap_fifo|                 layer13_out|       pointer|
+|conv1_input_TDATA   |   in|   16|        axis|                 conv1_input|       pointer|
+|conv1_input_TVALID  |   in|    1|        axis|                 conv1_input|       pointer|
+|conv1_input_TREADY  |  out|    1|        axis|                 conv1_input|       pointer|
++--------------------+-----+-----+------------+----------------------------+--------------+
+

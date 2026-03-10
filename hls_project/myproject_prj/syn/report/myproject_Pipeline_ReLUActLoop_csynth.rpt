@@ -1,0 +1,158 @@
+
+
+================================================================
+== Vitis HLS Report for 'myproject_Pipeline_ReLUActLoop'
+================================================================
+* Date:           Tue Mar  3 13:37:01 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        myproject_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.980 ns|     1.25 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       67|       67|  0.670 us|  0.670 us|   67|   67|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- ReLUActLoop  |       65|       65|         3|          1|          1|    64|       yes|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+--------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |   LUT  | URAM|
++-----------------+---------+-----+--------+--------+-----+
+|DSP              |        -|    -|       -|       -|    -|
+|Expression       |        -|    -|       0|     185|    -|
+|FIFO             |        -|    -|       -|       -|    -|
+|Instance         |        -|    -|       -|       -|    -|
+|Memory           |        -|    -|       -|       -|    -|
+|Multiplexer      |        -|    -|       -|      54|    -|
+|Register         |        -|    -|      72|       -|    -|
++-----------------+---------+-----+--------+--------+-----+
+|Total            |        0|    0|      72|     239|    0|
++-----------------+---------+-----+--------+--------+-----+
+|Available        |      730|  740|  269200|  134600|    0|
++-----------------+---------+-----+--------+--------+-----+
+|Utilization (%)  |        0|    0|      ~0|      ~0|    0|
++-----------------+---------+-----+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |i_4_fu_95_p2               |         +|   0|  0|  14|           7|           1|
+    |icmp_ln41_fu_89_p2         |      icmp|   0|  0|  15|           7|           8|
+    |icmp_ln51_39_fu_188_p2     |      icmp|   0|  0|  23|          16|           1|
+    |icmp_ln51_40_fu_202_p2     |      icmp|   0|  0|  23|          16|           1|
+    |icmp_ln51_41_fu_216_p2     |      icmp|   0|  0|  23|          16|           1|
+    |icmp_ln51_fu_174_p2        |      icmp|   0|  0|  23|          16|           1|
+    |ap_block_pp0_stage0_01001  |        or|   0|  0|   2|           1|           1|
+    |out_data_11_fu_180_p3      |    select|   0|  0|  15|           1|          15|
+    |out_data_13_fu_194_p3      |    select|   0|  0|  15|           1|          15|
+    |out_data_15_fu_208_p3      |    select|   0|  0|  15|           1|          15|
+    |out_data_17_fu_222_p3      |    select|   0|  0|  15|           1|          15|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0| 185|          84|          76|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_3     |   9|          2|    7|         14|
+    |i_fu_64                  |   9|          2|    7|         14|
+    |layer2_out_blk_n         |   9|          2|    1|          2|
+    |layer3_out_blk_n         |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  54|         12|   18|         36|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |i_fu_64                           |   7|   0|    7|          0|
+    |out_data_11_reg_266               |  15|   0|   15|          0|
+    |out_data_13_reg_271               |  15|   0|   15|          0|
+    |out_data_15_reg_276               |  15|   0|   15|          0|
+    |out_data_17_reg_281               |  15|   0|   15|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             |  72|   0|   72|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------------------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++--------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk              |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|ap_rst              |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|ap_start            |   in|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|ap_done             |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|ap_idle             |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|ap_ready            |  out|    1|  ap_ctrl_hs|  myproject_Pipeline_ReLUActLoop|  return value|
+|layer2_out_dout     |   in|   64|     ap_fifo|                      layer2_out|       pointer|
+|layer2_out_empty_n  |   in|    1|     ap_fifo|                      layer2_out|       pointer|
+|layer2_out_read     |  out|    1|     ap_fifo|                      layer2_out|       pointer|
+|layer3_out_din      |  out|   64|     ap_fifo|                      layer3_out|       pointer|
+|layer3_out_full_n   |   in|    1|     ap_fifo|                      layer3_out|       pointer|
+|layer3_out_write    |  out|    1|     ap_fifo|                      layer3_out|       pointer|
++--------------------+-----+-----+------------+--------------------------------+--------------+
+

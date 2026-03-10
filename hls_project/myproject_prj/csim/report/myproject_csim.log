@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../myproject_test.cpp in debug mode
+   Compiling ../../../../firmware/myproject.cpp in debug mode
+   Generating csim.exe
+INFO: Unable to open input/predictions file, using default input.
+0.015625 1 0.00488281 0.0078125 0.0341797 0.0253906 0.0185547 0.0302734 0.00976563 0.0263672 
+INFO: Saved inference results to file: tb_data/csim_results.log
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 100
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
